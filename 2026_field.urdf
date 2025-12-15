@@ -1,0 +1,532 @@
+<?xml version="1.0"?>
+<robot name="robocon_2026_field_dual_rotated_forest">
+
+    <material name="left_field_mat">
+        <color rgba="0.980 0.863 0.855 1"/>
+    </material>
+    <material name="right_field_mat">
+        <color rgba="0.502 0.780 0.886 1"/>
+    </material>
+    
+    <material name="white_line">
+        <color rgba="1 1 1 1"/>
+    </material>
+
+    <material name="dark_green">
+        <color rgba="0.0 0.4 0.0 1"/>
+    </material>
+    <material name="norm_green">
+        <color rgba="0.2 0.8 0.2 1"/>
+    </material>
+    <material name="parr_green">
+        <color rgba="0.6 1.0 0.4 1"/>
+    </material>
+    
+    <material name="border_mat">
+        <color rgba="0.5 0.3 0.1 1"/>
+    </material>
+
+    <material name="r_start">
+        <color rgba="0.87 0.00134 0.00134 1"/>
+    </material>
+
+    <material name="b_start">
+        <color rgba="0.0019 0 1 1"/>
+    </material>
+
+    <link name="world"/>
+
+    <link name="left_field_surface">
+        <visual>
+            <origin xyz="0 3.0 0.0" rpy="0 0 0"/>
+            <geometry>
+                <box size="12.0 6.0 0"/>
+            </geometry>
+            <material name="left_field_mat"/>
+        </visual>
+    </link>
+    <joint name="left_field_joint" type="fixed">
+        <parent link="world"/>
+        <child link="left_field_surface"/>
+        <origin xyz="0 0 -0.005"/>
+    </joint>
+
+    <link name="right_field_surface">
+        <visual>
+            <origin xyz="0 -3.0 0.0" rpy="0 0 0"/>
+            <geometry>
+                <box size="12.0 6.0 0"/>
+            </geometry>
+            <material name="right_field_mat"/>
+        </visual>
+    </link>
+    <joint name="right_field_joint" type="fixed">
+        <parent link="world"/>
+        <child link="right_field_surface"/>
+        <origin xyz="0 0 -0.005"/>
+    </joint>
+
+    <link name="border_x_pos">
+        <visual>
+            <origin xyz="5.975 0 0.05" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.05 12.0 0.10"/>
+            </geometry>
+            <material name="border_mat"/>
+        </visual>
+    </link>
+    <joint name="border_x_pos_joint" type="fixed">
+        <parent link="world"/>
+        <child link="border_x_pos"/>
+        <origin xyz="0 0 0"/>
+    </joint>
+    <link name="border_x_neg">
+        <visual>
+            <origin xyz="-5.975 0 0.05" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.05 12.0 0.10"/>
+            </geometry>
+            <material name="border_mat"/>
+        </visual>
+    </link>
+    <joint name="border_x_neg_joint" type="fixed">
+        <parent link="world"/>
+        <child link="border_x_neg"/>
+        <origin xyz="0 0 0"/>
+    </joint>
+    <link name="border_y_pos">
+        <visual>
+            <origin xyz="0 5.975 0.05" rpy="0 0 0"/>
+            <geometry>
+                <box size="12.0 0.05 0.10"/>
+            </geometry>
+            <material name="border_mat"/>
+        </visual>
+    </link>
+    <joint name="border_y_pos_joint" type="fixed">
+        <parent link="world"/>
+        <child link="border_y_pos"/>
+        <origin xyz="0 0 0"/>
+    </joint>
+    <link name="border_y_neg">
+        <visual>
+            <origin xyz="0 -5.975 0.05" rpy="0 0 0"/>
+            <geometry>
+                <box size="12.0 0.05 0.10"/>
+            </geometry>
+            <material name="border_mat"/>
+        </visual>
+    </link>
+    <joint name="border_y_neg_joint" type="fixed">
+        <parent link="world"/>
+        <child link="border_y_neg"/>
+        <origin xyz="0 0 0"/>
+    </joint>
+    
+    <link name="internal_divider">
+        <visual>
+            <origin xyz="0 0 0.05" rpy="0 0 0"/>
+            <geometry>
+                <box size="12.0 0.05 0.10"/>
+            </geometry>
+            <material name="border_mat"/>
+        </visual>
+    </link>
+    <joint name="internal_divider_joint" type="fixed">
+        <parent link="world"/>
+        <child link="internal_divider"/>
+        <origin xyz="0 0 0"/>
+    </joint>
+    
+    
+    <link name="blue_forest_base"/>
+    <joint name="world_joint_blue_forest" type="fixed">
+        <parent link="world"/>
+        <child link="blue_forest_base"/>
+        <origin xyz="0.3920 -4.8 0" rpy="0 0 1.5708"/> 
+    </joint>
+
+    <link name="b_r1_c1">
+        <visual>
+            <origin xyz="0 0 0.10" rpy="0 0 0"/> <geometry><box size="1.20 1.20 0.20"/></geometry> <material name="dark_green"/> </visual>
+    </link>
+    <joint name="b_r1_c1_joint" type="fixed">
+        <parent link="blue_forest_base"/><child link="b_r1_c1"/>
+        <origin xyz="0.60 1.80 0" rpy="0 0 0"/>
+    </joint>
+    <link name="b_r2_c1">
+        <visual>
+            <origin xyz="0 0 0.20" rpy="0 0 0"/> <geometry><box size="1.20 1.20 0.40"/></geometry> <material name="norm_green"/> </visual>
+    </link>
+    <joint name="b_r2_c1_joint" type="fixed">
+        <parent link="blue_forest_base"/><child link="b_r2_c1"/>
+        <origin xyz="0.60 0.60 0" rpy="0 0 0"/>
+    </joint>
+    <link name="b_r3_c1">
+        <visual>
+            <origin xyz="0 0 0.10" rpy="0 0 0"/> <geometry><box size="1.20 1.20 0.20"/></geometry> <material name="dark_green"/> </visual>
+    </link>
+    <joint name="b_r3_c1_joint" type="fixed">
+        <parent link="blue_forest_base"/><child link="b_r3_c1"/>
+        <origin xyz="0.60 -0.60 0" rpy="0 0 0"/>
+    </joint>
+    <link name="b_r4_c1">
+        <visual>
+            <origin xyz="0 0 0.20" rpy="0 0 0"/> <geometry><box size="1.20 1.20 0.40"/></geometry> <material name="norm_green"/> </visual>
+    </link>
+    <joint name="b_r4_c1_joint" type="fixed">
+        <parent link="blue_forest_base"/><child link="b_r4_c1"/>
+        <origin xyz="0.60 -1.80 0" rpy="0 0 0"/>
+    </joint>
+
+    <link name="b_r1_c2">
+        <visual>
+            <origin xyz="0 0 0.20" rpy="0 0 0"/> <geometry><box size="1.20 1.20 0.40"/></geometry> <material name="norm_green"/> </visual>
+    </link>
+    <joint name="b_r1_c2_joint" type="fixed">
+        <parent link="blue_forest_base"/><child link="b_r1_c2"/>
+        <origin xyz="1.80 1.80 0" rpy="0 0 0"/>
+    </joint>
+    <link name="b_r2_c2">
+        <visual>
+            <origin xyz="0 0 0.30" rpy="0 0 0"/> <geometry><box size="1.20 1.20 0.60"/></geometry> <material name="parr_green"/> </visual>
+    </link>
+    <joint name="b_r2_c2_joint" type="fixed">
+        <parent link="blue_forest_base"/><child link="b_r2_c2"/>
+        <origin xyz="1.80 0.60 0" rpy="0 0 0"/>
+    </joint>
+    <link name="b_r3_c2">
+        <visual>
+            <origin xyz="0 0 0.20" rpy="0 0 0"/> <geometry><box size="1.20 1.20 0.40"/></geometry> <material name="norm_green"/> </visual>
+    </link>
+    <joint name="b_r3_c2_joint" type="fixed">
+        <parent link="blue_forest_base"/><child link="b_r3_c2"/>
+        <origin xyz="1.80 -0.60 0" rpy="0 0 0"/>
+    </joint>
+    <link name="b_r4_c2">
+        <visual>
+            <origin xyz="0 0 0.10" rpy="0 0 0"/> <geometry><box size="1.20 1.20 0.20"/></geometry> <material name="dark_green"/> </visual>
+    </link>
+    <joint name="b_r4_c2_joint" type="fixed">
+        <parent link="blue_forest_base"/><child link="b_r4_c2"/>
+        <origin xyz="1.80 -1.80 0" rpy="0 0 0"/>
+    </joint>
+
+    <link name="b_r1_c3">
+        <visual>
+            <origin xyz="0 0 0.10" rpy="0 0 0"/> <geometry><box size="1.20 1.20 0.20"/></geometry> <material name="dark_green"/> </visual>
+    </link>
+    <joint name="b_r1_c3_joint" type="fixed">
+        <parent link="blue_forest_base"/><child link="b_r1_c3"/>
+        <origin xyz="3.00 1.80 0" rpy="0 0 0"/>
+    </joint>
+    <link name="b_r2_c3">
+        <visual>
+            <origin xyz="0 0 0.20" rpy="0 0 0"/> <geometry><box size="1.20 1.20 0.40"/></geometry> <material name="norm_green"/> </visual>
+    </link>
+    <joint name="b_r2_c3_joint" type="fixed">
+        <parent link="blue_forest_base"/><child link="b_r2_c3"/>
+        <origin xyz="3.00 0.60 0" rpy="0 0 0"/>
+    </joint>
+    <link name="b_r3_c3">
+        <visual>
+            <origin xyz="0 0 0.30" rpy="0 0 0"/> <geometry><box size="1.20 1.20 0.60"/></geometry> <material name="parr_green"/> </visual>
+    </link>
+    <joint name="b_r3_c3_joint" type="fixed">
+        <parent link="blue_forest_base"/><child link="b_r3_c3"/>
+        <origin xyz="3.00 -0.60 0" rpy="0 0 0"/>
+    </joint>
+    <link name="b_r4_c3">
+        <visual>
+            <origin xyz="0 0 0.20" rpy="0 0 0"/> <geometry><box size="1.20 1.20 0.40"/></geometry> <material name="norm_green"/> </visual>
+    </link>
+    <joint name="b_r4_c3_joint" type="fixed">
+        <parent link="blue_forest_base"/><child link="b_r4_c3"/>
+        <origin xyz="3.00 -1.80 0" rpy="0 0 0"/>
+    </joint>
+
+
+    <link name="red_forest_base"/>
+    <joint name="world_joint_red_forest" type="fixed">
+        <parent link="world"/>
+        <child link="red_forest_base"/>
+        <origin xyz="0.392 1.2 0" rpy="0 0 1.5708"/> 
+    </joint>
+
+    <link name="r_r1_c1">
+        <visual>
+            <origin xyz="0 0 0.10" rpy="0 0 0"/>
+            <geometry><box size="1.20 1.20 0.20"/></geometry>
+            <material name="dark_green"/>
+        </visual>
+    </link>
+    <joint name="r_r1_c1_joint" type="fixed">
+        <parent link="red_forest_base"/><child link="r_r1_c1"/>
+        <origin xyz="0.60 1.80 0" rpy="0 0 0"/>
+    </joint>
+    <link name="r_r2_c1">
+        <visual>
+            <origin xyz="0 0 0.20" rpy="0 0 0"/>
+            <geometry><box size="1.20 1.20 0.40"/></geometry>
+            <material name="norm_green"/>
+        </visual>
+    </link>
+    <joint name="r_r2_c1_joint" type="fixed">
+        <parent link="red_forest_base"/><child link="r_r2_c1"/>
+        <origin xyz="0.60 0.60 0" rpy="0 0 0"/>
+    </joint>
+    <link name="r_r3_c1">
+        <visual>
+            <origin xyz="0 0 0.30" rpy="0 0 0"/>
+            <geometry><box size="1.20 1.20 0.60"/></geometry>
+            <material name="parr_green"/>
+        </visual>
+    </link>
+    <joint name="r_r3_c1_joint" type="fixed">
+        <parent link="red_forest_base"/><child link="r_r3_c1"/>
+        <origin xyz="0.60 -0.60 0" rpy="0 0 0"/>
+    </joint>
+    <link name="r_r4_c1">
+        <visual>
+            <origin xyz="0 0 0.20" rpy="0 0 0"/>
+            <geometry><box size="1.20 1.20 0.40"/></geometry>
+            <material name="norm_green"/>
+        </visual>
+    </link>
+    <joint name="r_r4_c1_joint" type="fixed">
+        <parent link="red_forest_base"/><child link="r_r4_c1"/>
+        <origin xyz="0.60 -1.80 0" rpy="0 0 0"/>
+    </joint>
+
+    <link name="r_r1_c2">
+        <visual>
+            <origin xyz="0 0 0.20" rpy="0 0 0"/>
+            <geometry><box size="1.20 1.20 0.40"/></geometry>
+            <material name="norm_green"/>
+        </visual>
+    </link>
+    <joint name="r_r1_c2_joint" type="fixed">
+        <parent link="red_forest_base"/><child link="r_r1_c2"/>
+        <origin xyz="1.80 1.80 0" rpy="0 0 0"/>
+    </joint>
+    <link name="r_r2_c2">
+        <visual>
+            <origin xyz="0 0 0.30" rpy="0 0 0"/>
+            <geometry><box size="1.20 1.20 0.60"/></geometry>
+            <material name="parr_green"/>
+        </visual>
+    </link>
+    <joint name="r_r2_c2_joint" type="fixed">
+        <parent link="red_forest_base"/><child link="r_r2_c2"/>
+        <origin xyz="1.80 0.60 0" rpy="0 0 0"/>
+    </joint>
+    <link name="r_r3_c2">
+        <visual>
+            <origin xyz="0 0 0.20" rpy="0 0 0"/>
+            <geometry><box size="1.20 1.20 0.40"/></geometry>
+            <material name="norm_green"/>
+        </visual>
+    </link>
+    <joint name="r_r3_c2_joint" type="fixed">
+        <parent link="red_forest_base"/><child link="r_r3_c2"/>
+        <origin xyz="1.80 -0.60 0" rpy="0 0 0"/>
+    </joint>
+    <link name="r_r4_c2">
+        <visual>
+            <origin xyz="0 0 0.10" rpy="0 0 0"/>
+            <geometry><box size="1.20 1.20 0.20"/></geometry>
+            <material name="dark_green"/>
+        </visual>
+    </link>
+    <joint name="r_r4_c2_joint" type="fixed">
+        <parent link="red_forest_base"/><child link="r_r4_c2"/>
+        <origin xyz="1.80 -1.80 0" rpy="0 0 0"/>
+    </joint>
+
+    <link name="r_r1_c3">
+        <visual>
+            <origin xyz="0 0 0.10" rpy="0 0 0"/>
+            <geometry><box size="1.20 1.20 0.20"/></geometry>
+            <material name="dark_green"/>
+        </visual>
+    </link>
+    <joint name="r_r1_c3_joint" type="fixed">
+        <parent link="red_forest_base"/><child link="r_r1_c3"/>
+        <origin xyz="3.00 1.80 0" rpy="0 0 0"/>
+    </joint>
+    <link name="r_r2_c3">
+        <visual>
+            <origin xyz="0 0 0.20" rpy="0 0 0"/>
+            <geometry><box size="1.20 1.20 0.40"/></geometry>
+            <material name="norm_green"/>
+        </visual>
+    </link>
+    <joint name="r_r2_c3_joint" type="fixed">
+        <parent link="red_forest_base"/><child link="r_r2_c3"/>
+        <origin xyz="3.00 0.60 0" rpy="0 0 0"/>
+    </joint>
+    <link name="r_r3_c3">
+        <visual>
+            <origin xyz="0 0 0.10" rpy="0 0 0"/>
+            <geometry><box size="1.20 1.20 0.20"/></geometry>
+            <material name="dark_green"/>
+        </visual>
+    </link>
+    <joint name="r_r3_c3_joint" type="fixed">
+        <parent link="red_forest_base"/><child link="r_r3_c3"/>
+        <origin xyz="3.00 -0.60 0" rpy="0 0 0"/>
+    </joint>
+    <link name="r_r4_c3">
+        <visual>
+            <origin xyz="0 0 0.20" rpy="0 0 0"/>
+            <geometry><box size="1.20 1.20 0.40"/></geometry>
+            <material name="norm_green"/>
+        </visual>
+    </link>
+    <joint name="r_r4_c3_joint" type="fixed">
+        <parent link="red_forest_base"/><child link="r_r4_c3"/>
+        <origin xyz="3.00 -1.80 0" rpy="0 0 0"/>
+    </joint>
+
+    <link name="line_martial">
+        <visual>
+            <origin xyz="4.015 0 0" rpy="0 0 0"/>
+            <geometry><box size="0.03 12.0 0"/></geometry>
+            <material name="white_line"/>
+        </visual>
+    </link>
+    <joint name="line_martial" type="fixed">
+        <parent link="world"/><child link="line_martial"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+
+    <link name="r_line_martial_perp2">
+        <visual>
+            <origin xyz="3.4 1.2 0" rpy="0 0 0"/>
+            <geometry><box size="1.215 0.03 0"/></geometry>
+            <material name="white_line"/>
+        </visual>
+    </link>
+
+    <joint name="r_line_martial_perp2" type="fixed">
+        <parent link="world"/><child link="r_line_martial_perp2"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+
+    <link name="r_line_martial_perp1">
+        <visual>
+            <origin xyz="3.4 4.8 0" rpy="0 0 0"/>
+            <geometry><box size="1.215 0.03 0"/></geometry>
+            <material name="white_line"/>
+        </visual>
+    </link>
+
+    <joint name="r_line_martial_perp1" type="fixed">
+        <parent link="world"/><child link="r_line_martial_perp1"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+
+    <link name="b_line_martial_perp2">
+        <visual>
+            <origin xyz="3.4 -1.2 0" rpy="0 0 0"/>
+            <geometry><box size="1.215 0.03 0"/></geometry>
+            <material name="white_line"/>
+        </visual>
+    </link>
+
+    <joint name="b_line_martial_perp2" type="fixed">
+        <parent link="world"/><child link="b_line_martial_perp2"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+
+    <link name="b_line_martial_perp1">
+        <visual>
+            <origin xyz="3.4 -4.8 0" rpy="0 0 0"/>
+            <geometry><box size="1.215 0.03 0"/></geometry>
+            <material name="white_line"/>
+        </visual>
+    </link>
+
+    <joint name="b_line_martial_perp1" type="fixed">
+        <parent link="world"/><child link="b_line_martial_perp1"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+
+    <link name="manual_start_red">
+        <visual>
+            <origin xyz="5.5 5.5 0" rpy="0 0 0"/>
+            <geometry><box size="1.0 1.0 0"/></geometry>
+            <material name="r_start"/>
+        </visual>
+    </link>
+
+    <joint name="manual_start_red" type="fixed">
+        <parent link="world"/><child link="manual_start_red"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+
+    <link name="manual_start_blue">
+        <visual>
+            <origin xyz="5.5 -5.5 0" rpy="0 0 0"/>
+            <geometry><box size="1.0 1.0 0"/></geometry>
+            <material name="b_start"/>
+        </visual>
+    </link>
+
+    <joint name="manual_start_blue" type="fixed">
+        <parent link="world"/><child link="manual_start_blue"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+
+    <link name="line_arena_perp">
+        <visual>
+            <origin xyz="-2.675 4.825 0" rpy="0 0 0"/>
+            <geometry><box size="1.450 0.03 0"/></geometry>
+            <material name="white_line"/>
+        </visual>
+    </link>
+    <joint name="line_arena_perp" type="fixed">
+        <parent link="world"/><child link="line_arena_perp"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+
+    <link name="line_arena_hor">
+        <visual>
+            <origin xyz="-1.960 0.6 0" rpy="0 0 0"/>
+            <geometry><box size="0.03 1.2 0"/></geometry>
+            <material name="white_line"/>
+        </visual>
+    </link>
+    <joint name="line_arena_hor" type="fixed">
+        <parent link="world"/><child link="line_arena_hor"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+
+<link name="platform_flat">
+        <visual>
+            <origin xyz="0 0 0.225" rpy="0 0 0"/> <geometry>
+                <box size="1.20 1.30 0.45"/>
+            </geometry>
+            <material name="platform_ramp_mat"/>
+        </visual>
+    </link>
+    <joint name="platform_flat_joint" type="fixed">
+        <parent link="world"/>
+        <child link="platform_flat"/>
+        <origin xyz="-2.9 0 0"/>
+    </joint>
+    
+    <link name="platform_incline">
+        <visual>
+            <origin xyz="0.840 0 0.225" rpy="0 -0.2618 0"/> <geometry>
+                <box size="1.740 1.30 0.03"/> </geometry>
+            <material name="platform_ramp_mat"/>
+        </visual>
+    </link>
+    <joint name="platform_incline_joint" type="fixed">
+        <parent link="world"/>
+        <child link="platform_incline"/>
+        <origin xyz="-5.0 0 0.015"/> 
+    </joint>
+
+</robot>
